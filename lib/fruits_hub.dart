@@ -12,7 +12,7 @@ class FruitsHub extends StatelessWidget {
       title: 'Flutter Demo',
       onGenerateRoute: AppRouter.generateRoute,
       initialRoute: Routes.splashView,
-      
+      debugShowCheckedModeBanner: false,
     );
   }
 }
