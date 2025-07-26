@@ -8,6 +8,11 @@ class AppRouter {
       case Routes.splashView : 
         return MaterialPageRoute(builder: (context) => const SplashView());
 
+        case Routes.onBoardingView : 
+        return MaterialPageRoute(builder: (context) => const Scaffold(
+          body: Center(child: Text('OnBoarding View'),),
+        ));
+
       default : 
          return null;
     }
