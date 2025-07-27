@@ -21,3 +21,10 @@ extension NavigatorExtension on BuildContext {
     );
   }
 }
+
+// Extension to center a widget
+extension CenteredExtension on Widget {
+  Widget centered() {
+    return Center(child: this);
+  }
+}
