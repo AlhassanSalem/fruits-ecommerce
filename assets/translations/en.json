@@ -6,5 +6,22 @@
     "search_and_shop" : "Search and Shop",
     "onboarding_subtitle2" : "We bring you the finest handpicked fruits. Browse details, images, and reviews to ensure you choose the perfect fruit.",
     "skip" : "Skip",
-    "start_now" : "Start Now"
+    "start_now" : "Start Now",
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "dont_have_account": "Don’t have an account?",
+    "create_one": "Create one",
+    "or": "or",
+    "sign_in_with_google": "Sign in with Google",
+    "sign_in_with_facebook": "Sign in with Facebook",
+    "sign_in_with_apple": "Sign in with Apple",
+    "new_account": "New account",
+    "full_name": "Full name",
+    "create_account": "Create account",
+    "by_creating_an_account_you_agree_to": "By creating an account, you agree to",
+    "terms_and_conditions": "our Terms and Conditions",
+    "create_new_account": "Create a new account",
+    "already_have_an_account": "Already have an account?"
 }
