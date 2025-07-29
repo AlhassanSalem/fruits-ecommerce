@@ -6,5 +6,22 @@
     "search_and_shop" : "ابحث وتسوق",
     "onboarding_subtitle2" : "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية.",
     "skip" : "تخطّ",
-    "start_now" : "ابدأ الآن"
+    "start_now" : "ابدأ الآن",
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "dont_have_account": "لا تمتلك حساب؟",
+    "create_one": "قم بإنشاء حساب",
+    "or": "أو",
+    "sign_in_with_google": "تسجيل الدخول بواسطة جوجل",
+    "sign_in_with_facebook": "تسجيل الدخول بواسطة فيسبوك",
+    "sign_in_with_apple": "تسجيل الدخول بواسطة آبل",
+    "new_account": "حساب جديد",
+    "full_name": "الاسم الكامل",
+    "create_account": "إنشاء حساب",
+    "by_creating_an_account_you_agree_to": "من خلال إنشاء حساب، فإنك توافق على",
+    "terms_and_conditions": "الشروط والأحكام الخاصة بنا",
+    "create_new_account": "إنشاء حساب جديد",
+    "already_have_an_account": "تمتلك حساب بالفعل؟"
 }

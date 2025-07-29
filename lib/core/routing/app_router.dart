@@ -1,5 +1,6 @@
 import 'package:ecommerce_fruits/core/routing/routes.dart';
 import 'package:ecommerce_fruits/features/auth/presentaion/views/login_view.dart';
+import 'package:ecommerce_fruits/features/auth/presentaion/views/sign_up_view.dart';
 import 'package:ecommerce_fruits/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:ecommerce_fruits/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ class AppRouter {
 
         case Routes.loginView : 
         return MaterialPageRoute(builder: (context) => const LoginView());
+
+        case Routes.signUpView : 
+        return MaterialPageRoute(builder: (context) => const SignUpView());
+
 
       default : 
          return null;
