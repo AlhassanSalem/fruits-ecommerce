@@ -40,7 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void _navigateToNextScreen() {
     switch (_isOnBoardingViewSeen) {
       case true:
-        _navigateToLoginView();
+        _navigateToSignInView();
         break;
       case false:
         _navigateToOnBoardingView();
@@ -56,9 +56,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   /// Navigates to the Login view after a delay.
-  void _navigateToLoginView() {
+  void _navigateToSignInView() {
     Future.delayed(const Duration(seconds: 2), () {
-      context.pushNamed(Routes.loginView);
+      context.pushNamed(Routes.signInView);
     });
   }
 

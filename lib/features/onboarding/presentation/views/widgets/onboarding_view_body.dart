@@ -54,8 +54,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
            child: Padding(
              padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
              child: CustomButton(
-              title: LocaleKeys.startNow, 
-              onPressed: ()=> _navigateToOnLoginViewView(context),
+              title: LocaleKeys.startNow,
+              onPressed: ()=> _navigateToOnSignInView(context),
              ),
            ),
          ),
@@ -64,13 +64,13 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     );
   }
 
-  /// Navigates to the Login view and marks the OnBoarding view as seen.
-  void _navigateToOnLoginViewView(BuildContext context) {
+  /// Navigates to the SignIn view and marks the OnBoarding view as seen.
+  void _navigateToOnSignInView(BuildContext context) {
     SharedPrefHelper().setValueForKey(
       key: SharedPrefKeys.isOnBoardingViewSeen,
       value: true,
     );
-    context.pushReplacementNamed(Routes.loginView);
+    context.pushReplacementNamed(Routes.signInView);
   }
 }
 
