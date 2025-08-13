@@ -23,5 +23,19 @@
     "by_creating_an_account_you_agree_to": "By creating an account, you agree to",
     "terms_and_conditions": "our Terms and Conditions",
     "create_new_account": "Create a new account",
-    "already_have_an_account": "Already have an account?"
+    "already_have_an_account": "Already have an account?",
+    "error_length_name": "Name must be at least 8 characters long.",
+    "error_valid_email": "Please enter a valid email address.",
+    "error_valid_password": "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.",
+    "please_enter_your_name": "Please enter your name",
+    "please_enter_your_email": "Please enter your email",
+    "please_enter_your_password": "Please enter your password",
+    "weak_password": "The password provided is too weak.",
+    "email_already_in_use": "The account already exists for that email.",
+    "unknown_error": "An unknown error occurred, please try again later.",
+    "network_error": "Network error, please check your connection and try again.",
+    "user_not_found": "No user found for that email.",
+    "wrong_password": "Wrong password provided for that user.",
+    "invalid_credential": "The provided credential is invalid."
 }
+
