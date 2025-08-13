@@ -32,8 +32,11 @@ class FruitsHub extends StatelessWidget {
           border: outlineInputBorder(),
           focusedBorder: outlineInputBorder(),
           enabledBorder: outlineInputBorder(),
+          errorBorder: outlineInputBorder(borderColor: Colors.red),
+          focusedErrorBorder: outlineInputBorder(borderColor: Colors.red),
           filled: true,
           fillColor: Color(0xFFF9FAFA),
+
         ),
         
       ),

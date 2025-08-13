@@ -5,31 +5,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialLoginButton extends StatelessWidget {
-  const  SocialLoginButton({super.key, required this.imagePath, required this.title});
+  const  SocialLoginButton({super.key, required this.imagePath, required this.title, this.onTap});
   final String imagePath;
   final String title;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsetsDirectional.only(start: 17, top: 17, bottom: 17,),
-      decoration:  BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-       border: Border.all(color: Color(0xFFDDDFDF)),
-      ),
-      child: Row(
-        children: [
-          SvgPicture.asset(
-            imagePath,
-          ),
-          horizontalSpacing(53),
-          Text(
-            title.tr(),
-            style: TextStyles.semiBold16,
-          ),
-        ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 56,
+        padding: const EdgeInsetsDirectional.only(start: 17, top: 17, bottom: 17,),
+        decoration:  BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+         border: Border.all(color: Color(0xFFDDDFDF)),
+        ),
+        child: Row(
+          children: [
+            SvgPicture.asset(
+              imagePath,
+            ),
+            horizontalSpacing(53),
+            Text(
+              title.tr(),
+              style: TextStyles.semiBold16,
+            ),
+          ],
+        ),
       ),
     );
   }

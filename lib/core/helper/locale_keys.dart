@@ -27,5 +27,20 @@ abstract class LocaleKeys {
   static const termsAndConditions = 'terms_and_conditions';
   static const createNewAccount = 'create_new_account';
   static const alreadyHaveAnAccount = 'already_have_an_account';
+  static const errorLengthName = 'error_length_name';
+  static const errorValidEmail = 'error_valid_email';
+  static const errorValidPassword = 'error_valid_password';
+  static const pleaseEnterYourName = 'please_enter_your_name';
+  static const pleaseEnterYourEmail = 'please_enter_your_email';
+  static const pleaseEnterYourPassword = 'please_enter_your_password';
+
+  // Errors
+  static const weakPassword = 'weak_password';
+  static const emailAlreadyInUse = 'email_already_in_use';
+  static const unknownError = 'unknown_error';
+  static const networkError = 'network_error';
+  static const userNotFound = 'user_not_found';
+  static const wrongPassword = 'wrong_password';
+  static const invalidCredential = 'invalid_credential';
 
 }

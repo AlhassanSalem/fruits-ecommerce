@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-extension NavigatorExtension on BuildContext {
+extension ContextExtension on BuildContext {
   Future pushReplacementNamed(String routeName, {dynamic arguments}) {
     return Navigator.of(this).pushReplacementNamed(routeName, arguments: arguments);
   }
@@ -20,11 +20,45 @@ extension NavigatorExtension on BuildContext {
       arguments: arguments
     );
   }
+  
+  
+  /// To show a error snackbar
+  void errorSnackBar({
+    required String message,
+  }) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  /// To show a success snackbar
+  void successSnackBar({
+    required String message,
+  }) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
 }
+
 
 // Extension to center a widget
 extension CenteredExtension on Widget {
   Widget centered() {
     return Center(child: this);
   }
+}
+
+
+
+extension StringExtension on String? {
+
+  /// Checks if the string is null or empty.
+  bool get isNullOrEmpty => this == null || this == '';
 }
