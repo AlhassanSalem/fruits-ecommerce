@@ -7,6 +7,11 @@ class AppRegex {
     return emailRegex.hasMatch(email);
   }
 
+  /// Validates a password with the following criteria:
+  /// - At least 8 characters long
+  /// - Contains at least one uppercase letter, one lowercase letter, and one number
+  /// Example: "Password123"
+  /// Returns true if the password is valid, false otherwise.
   static bool isValidPassword(String password) {
     final passwordRegex = RegExp(
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$',
