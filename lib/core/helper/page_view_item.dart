@@ -53,7 +53,7 @@ class PageViewItem extends StatelessWidget {
                   top: 0,
                   start: 0,
                   child: GestureDetector(
-                    onTap: () => _navigateToOnLoginViewView(context),
+                    onTap: () => _navigateToOnSignInView(context),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.only(start: 30, top: 39),
                       child: Text(LocaleKeys.skip.tr(), style: TextStyles.regular13.copyWith(color: AppColors.gray400),),
@@ -82,13 +82,13 @@ class PageViewItem extends StatelessWidget {
     );
   }
 
-  /// Navigates to the Login view and marks the OnBoarding view as seen.
-  void _navigateToOnLoginViewView(BuildContext context) {
+  /// Navigates to the SignIn view and marks the OnBoarding view as seen.
+  void _navigateToOnSignInView(BuildContext context) {
     SharedPrefHelper().setValueForKey(
       key: SharedPrefKeys.isOnBoardingViewSeen,
       value: true,
     );
-    context.pushReplacementNamed(Routes.loginView);
+    context.pushReplacementNamed(Routes.signInView);
   }
 }
 
