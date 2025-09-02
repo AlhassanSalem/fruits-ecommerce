@@ -7,12 +7,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
-  
   Future deleteUser() async {
     FirebaseAuth.instance.currentUser!.delete();
   }
 
-  
   Future<User> createUserWithEmailAndPassword({
     required String email,
     required String password,
@@ -117,5 +115,9 @@ class FirebaseAuthService {
     return (await FirebaseAuth.instance.signInWithCredential(
       facebookAuthCredential,
     )).user!;
+  }
+
+  static bool get isLoggedIn {
+    return FirebaseAuth.instance.currentUser != null;
   }
 }
