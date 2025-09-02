@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class FruitsHub extends StatelessWidget {
   const FruitsHub({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,9 +24,7 @@ class FruitsHub extends StatelessWidget {
           seedColor: AppColors.primary,
           onPrimary: Colors.white,
         ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white,
-        ),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         inputDecorationTheme: InputDecorationTheme(
           border: outlineInputBorder(),
           focusedBorder: outlineInputBorder(),
@@ -36,17 +33,16 @@ class FruitsHub extends StatelessWidget {
           focusedErrorBorder: outlineInputBorder(borderColor: Colors.red),
           filled: true,
           fillColor: Color(0xFFF9FAFA),
-
         ),
-        
       ),
     );
   }
 
   OutlineInputBorder outlineInputBorder({Color? borderColor}) {
     return OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4),
-          borderSide: BorderSide(color: borderColor ?? Color(0xffE6E9EA), width: 1),
-        );
+      borderRadius: BorderRadius.circular(4),
+      borderSide: BorderSide(color: borderColor ?? Color(0xffE6E9EA), width: 1),
+    );
   }
 }
+

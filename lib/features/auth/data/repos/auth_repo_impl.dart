@@ -1,9 +1,11 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:ecommerce_fruits/core/error/exception.dart';
 import 'package:ecommerce_fruits/core/error/failures.dart';
 import 'package:ecommerce_fruits/core/helper/locale_keys.dart';
+import 'package:ecommerce_fruits/core/helper/shared_pref_helper.dart';
 import 'package:ecommerce_fruits/core/service/backend_endpoints.dart';
 import 'package:ecommerce_fruits/core/service/database_service.dart';
 import 'package:ecommerce_fruits/core/service/firebase_auth_service.dart';
@@ -54,7 +56,6 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-
   /// Signs in the user with email and password.
   @override
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
@@ -67,7 +68,7 @@ class AuthRepoImpl implements AuthRepo {
         password: password,
       );
       UserEntity userEntity = await getUserData(uid: user.uid);
-      log('User signed in: ${userEntity.toMap()}');
+      saveUserData(user: userEntity);
       return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
@@ -76,7 +77,6 @@ class AuthRepoImpl implements AuthRepo {
       return left(ServerFailure(LocaleKeys.unknownError.tr()));
     }
   }
-
 
   /// Signs in the user with Google.
   @override
@@ -100,7 +100,6 @@ class AuthRepoImpl implements AuthRepo {
       return left(ServerFailure(LocaleKeys.unknownError.tr()));
     }
   }
-
 
   /// Signs in the user with Facebook.
   @override
@@ -130,7 +129,7 @@ class AuthRepoImpl implements AuthRepo {
   Future<void> addUserData({required UserEntity user}) {
     return databaseService.addData(
       path: BackendEndpoints.addUserDataEndPoint,
-      data: user.toMap(),
+      data: UserModel.fromUserEntity(user).toMap(),
       documentId: user.uId,
     );
   }
@@ -145,7 +144,6 @@ class AuthRepoImpl implements AuthRepo {
     return UserModel.fromJson(data);
   }
 
-
   /// Handles user data by checking if the user exists in the database.
   /// If the user does not exist, it adds the user data to the database.
   /// If the user exists, it retrieves the user data.
@@ -154,12 +152,22 @@ class AuthRepoImpl implements AuthRepo {
       path: BackendEndpoints.getUserDataEndPoint,
       documentId: user.uid,
     );
+    saveUserData(user: userEntity);
     if (!isUserExists) {
-      log('User does not exist, adding user data: ${userEntity.toMap()}');
+      log('User does not exist, adding user data');
       await addUserData(user: userEntity);
     } else {
-      log('User exists, retrieving user data: ${userEntity.toMap()}');
+      log('User exists, retrieving user data');
       await getUserData(uid: user.uid);
     }
+  }
+
+  @override
+  Future<void> saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromUserEntity(user).toMap());
+    SharedPrefHelper().setValueForKey(
+      key: SharedPrefKeys.userData,
+      value: jsonData,
+    );
   }
 }

@@ -14,13 +14,13 @@ class SignInButtonBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listenWhen: (previous, current) {
         return previous is SigninLoading != current is SigninLoading ||
-               previous is SigninSuccess != current is SigninSuccess ||
-               previous is SigninFailure != current is SigninFailure;
+            previous is SigninSuccess != current is SigninSuccess ||
+            previous is SigninFailure != current is SigninFailure;
       },
       listener: (context, state) {
         if (state is SigninSuccess) {
           context.successSnackBar(message: 'successfully logged in');
-          context.pushReplacementNamed(Routes.homeView);
+          context.pushReplacementNamed(Routes.mainView);
         } else if (state is SigninFailure) {
           context.errorSnackBar(message: state.message);
         }
@@ -30,7 +30,7 @@ class SignInButtonBlocConsumer extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         return CustomButton(
-          title: LocaleKeys.login, 
+          title: LocaleKeys.login,
           onPressed: () => _validateAndLogin(context),
         );
       },

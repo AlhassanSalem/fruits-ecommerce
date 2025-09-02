@@ -10,12 +10,4 @@ class UserEntity {
   });
 
 
-  toMap() {
-    return {
-      'uid': uId,
-      'name': name,
-      'email': email,
-    };
-  }
-
 }
