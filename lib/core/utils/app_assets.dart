@@ -62,10 +62,6 @@ class Assets {
   /// assets/images/fruit_basket.svg
   static const String imagesFruitBasket = "assets/images/fruit_basket.svg";
 
-  /// Assets for imagesFruitTest
-  /// assets/images/fruit_test.png
-  static const String imagesFruitTest = "assets/images/fruit_test.png";
-
   /// Assets for imagesGoogleIcon
   /// assets/images/google_icon.svg
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
@@ -129,9 +125,5 @@ class Assets {
   /// Assets for imagesTrash
   /// assets/images/trash.svg
   static const String imagesTrash = "assets/images/trash.svg";
-
-  /// Assets for imagesWatermelonTest
-  /// assets/images/watermelon_test.png
-  static const String imagesWatermelonTest = "assets/images/watermelon_test.png";
 }
 
