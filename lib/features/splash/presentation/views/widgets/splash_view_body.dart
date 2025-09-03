@@ -1,5 +1,6 @@
 import 'package:ecommerce_fruits/core/helper/shared_pref_helper.dart';
 import 'package:ecommerce_fruits/core/routing/routes.dart';
+import 'package:ecommerce_fruits/core/service/firebase_auth_service.dart';
 import 'package:ecommerce_fruits/core/utils/app_assets.dart';
 import 'package:ecommerce_fruits/core/helper/extensions.dart';
 import 'package:flutter/material.dart';
@@ -38,9 +39,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   /// Navigates to the next screen based on whether the OnBoarding view has been seen.
   void _navigateToNextScreen() {
+    
     switch (_isOnBoardingViewSeen) {
       case true:
-        _navigateToSignInView();
+        if (FirebaseAuthService.isLoggedIn) {
+          _navigateToMainView();
+        } else {
+          _navigateToSignInView();
+        }
         break;
       case false:
         _navigateToOnBoardingView();
@@ -61,6 +67,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       context.pushNamed(Routes.signInView);
     });
   }
+
+ 
+  void _navigateToMainView() {
+    Future.delayed(const Duration(seconds: 2), () {
+      context.pushNamed(Routes.mainView);
+    });
+  }
+  
 
   /// Checks if the OnBoarding view has been seen and navigates accordingly.
   bool get _isOnBoardingViewSeen {

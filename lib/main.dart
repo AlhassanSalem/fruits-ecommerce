@@ -5,12 +5,19 @@ import 'package:ecommerce_fruits/core/helper/shared_pref_helper.dart';
 import 'package:ecommerce_fruits/firebase_options.dart';
 import 'package:ecommerce_fruits/fruits_hub.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorageDirectory.web
+        : HydratedStorageDirectory((await getTemporaryDirectory()).path),
+  );
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SharedPrefHelper().init();
   setupGetIt();

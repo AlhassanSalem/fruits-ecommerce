@@ -58,4 +58,5 @@ class SharedPrefHelper {
 /// Enum for SharedPreferences keys
 enum SharedPrefKeys {
   isOnBoardingViewSeen,
+  userData,
 }

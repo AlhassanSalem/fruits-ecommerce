@@ -4,22 +4,39 @@ import 'package:ecommerce_fruits/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.title, this.onPressed});
+  const CustomButton({
+    super.key,
+    required this.title,
+    this.onPressed,
+    this.style,
+    this.backgroundColor,
+    this.radius,
+    this.padding,
+  });
   final String title;
   final VoidCallback? onPressed;
+  final TextStyle? style;
+  final Color? backgroundColor;
+  final double? radius;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
       style: TextButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        minimumSize: const Size(double.infinity, 54),
+        backgroundColor: backgroundColor ?? AppColors.primary,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(radius ?? 16),
         ),
       ),
-      child: Text(title.tr(), style: TextStyles.bold16.copyWith(color: Colors.white)),
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: Text(
+          title.tr(),
+          style: style ?? TextStyles.bold16.copyWith(color: Colors.white),
+        ),
+      ),
     );
   }
 }
